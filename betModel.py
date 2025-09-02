@@ -3,7 +3,7 @@ import numpy as np
 
 
 #En este arcihvo están todas las funciones necesarias
-    
+
 # Función de covarianza y correlación
 
 def covariance(x, y):
@@ -104,6 +104,8 @@ def linearModel(x_train, x_test, y_train, y_test, lr=0.1, max_iter=100):
     print("Beggining training")
     print(f"Max iterations: {max_iter}")
     print(f"Learning rate: {lr}")
+    x_train = standardize(x_train)
+    x_test = standardize(x_test)
     w, b = trainModel(x_train, y_train, lr, max_iter)
 
     results = testModel(w, b, x_test, y_test)

@@ -11,7 +11,7 @@ url = "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/c19a9044624
 penguins = pd.read_csv(url).dropna()
 penguins_target = penguins["Body Mass (g)"]
 penguins_feature = penguins["Culmen Length (mm)"]
-penguins_feature = standardize(penguins_feature)
+#penguins_feature = standardize(penguins_feature)
 
 X_train, X_test, y_train, y_test = train_test_split(
     penguins_feature, penguins_target, test_size=0.33, random_state=42
@@ -22,7 +22,5 @@ linearModel(
     X_test,
     y_train,
     y_test,
-    0.1,
-    100
 )
 
