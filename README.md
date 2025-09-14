@@ -12,17 +12,20 @@ Para poder correr el código es recomendable tener un entorno virtual de python 
 
 ## Estructura del código 
 
-```plaintext 
 
 ```plaintext
-project/
-├── src/
-│   ├── main.py
-│   ├── utils.py
-│   └── config/
-│       └── settings.json
-├── tests/
-│   └── test_main.py
-├── README.md
-└── requirements.txt
+    personalLinealRegression/
+    ├── libraryModel/
+    │   └── linearModel.py
+    |
+    ├── personalModel/
+    │   |── betModel.py
+    |   |── betoModelOOP.py
+    |   └── learningCurvePersonal.py
+    |
+    ├── .gitignore
+    |── README.md
+    └── betoModelTest.py
+
+
 
