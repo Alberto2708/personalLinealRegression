@@ -42,3 +42,4 @@ Para poder correr el código es recomendable tener un entorno virtual de python 
 Asegurandote que estás en el directorio root
 En windows:
 ``` python .\betoModelTest.py ```
+
