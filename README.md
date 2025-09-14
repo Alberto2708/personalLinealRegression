@@ -37,3 +37,8 @@ Para poder correr el código es recomendable tener un entorno virtual de python 
 - learningCurvePersonal: Una función para evaluar el desempeño de mi modelo personal 
 - betoModelTest: Se agarra un dataset de pingüinos y se mandan a llamar los demás modelos para crear dos gráficas de evaluación basadas en R2
 
+## ¿Como correr el programa?
+
+Asegurandote que estás en el directorio root
+En windows:
+``` python .\betoModelTest.py ```
