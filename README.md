@@ -1,5 +1,8 @@
 
 
+
+#### Carlos Alberto Mentado Reyes A01276065
+
 # Modelo de regresión lineal realizado desde scratch VS. LinearRegression de scikitlearn
 
 

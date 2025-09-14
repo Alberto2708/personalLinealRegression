@@ -7,8 +7,7 @@ def learning_curve_linear_model(X, y, test_size=0.2, train_sizes=None, lr=0.01, 
 
 
     if train_sizes is None:
-        train_sizes = np.linspace(0.1, 1.0, 5)
-
+        train_sizes = np.linspace(0.1, 1.0, 10)
 
     split_idx = int((1 - test_size) * len(X))
     X_train, X_test = X[:split_idx], X[split_idx:]
@@ -22,7 +21,7 @@ def learning_curve_linear_model(X, y, test_size=0.2, train_sizes=None, lr=0.01, 
 
         X_sub, y_sub = X_train[:n_train], y_train[:n_train]
 
-        linear_model = model.LinearModel(X_sub, y_sub, X_test, y_test, lr=lr, n_iters=n_iters)
+        linear_model = model.LinearModel(X_sub, y_sub, X_test, y_test, lr=0.01, n_iters=n_iters)
         w, b = linear_model.trainModel(linear_model.standardize(X_sub), y_sub)
 
 

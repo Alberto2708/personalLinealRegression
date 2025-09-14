@@ -3,8 +3,8 @@ import numpy as np
 
 class LinearModel:
     def __init__(self, X_train, y_train, X_test, y_test, lr=0.01, n_iters=1000):
-        self.w = 0.1
-        self.b = 0.1
+        self.w = 0
+        self.b = 0
         self.lr = lr
         self.n_iters = n_iters
         self.X_train = X_train
@@ -87,13 +87,22 @@ class LinearModel:
         print("Beginning training")
         print(f"Max iterations: {self.n_iters}")
         print(f"Learning rate: {self.lr}")
-        x_train = self.standardize(self.X_train)
-        x_test = self.standardize(self.X_test)
 
+        # Standardize using training stats only
+        mean, std = self.X_train.mean(), self.X_train.std()
+        x_train = (self.X_train - mean) / std
+        x_test = (self.X_test - mean) / std
+
+        # Train
         w, b = self.trainModel(x_train, self.y_train)
 
-        results = self.testModel(x_test, self.y_test, w, b)
+        # Test
+        y_pred_test = [self.predict(x, w, b) for x in x_test]
+        r2 = self.rsquared(self.y_test, y_pred_test)
+        mse_final = self.mse(self.y_test, y_pred_test)
 
         print("Final results:")
-        print(f"y = {np.mean(w)}x + {np.mean(b)}")
-        print(f"Final MSE: {np.mean(results)}")
+        print(f"y = {w:.4f}x + {b:.4f}")
+        print(f"Final MSE: {mse_final:.4f}")
+        print(f"Final R²: {r2:.4f}")
+
