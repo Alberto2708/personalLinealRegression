@@ -32,7 +32,7 @@ def learning_curve_linear_model(X, y, test_size=0.2, train_sizes=None, lr=0.01, 
         val_r2 = linear_model.testModel(linear_model.standardize(X_test), y_test, w, b)
         val_scores.append(val_r2)
 
-    # Plot
+
     plt.figure(figsize=(8,5))
     plt.plot(train_sizes, train_scores, "o-", label="Training R²")
     plt.plot(train_sizes, val_scores, "o-", label="Validation R²")

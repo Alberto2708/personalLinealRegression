@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from personalModel.learningCurvePersonal import learning_curve_linear_model
 import libraryModel.linearModel as libraryModel
+import matplotlib.pyplot as plt
 
 
 #En este archivo se implementa la prueba del modelo, se pueden elegir diferentes 
@@ -21,8 +22,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 def compare_models():
     learning_curve_linear_model(penguins_feature, penguins_target)
-
     libraryModel.plotLinearModel(penguins_feature, penguins_target)
+    plt.show()
     pass
 
 
