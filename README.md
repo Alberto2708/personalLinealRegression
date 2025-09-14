@@ -9,3 +9,20 @@ Para poder correr el código es recomendable tener un entorno virtual de python 
 
 
 ``` pip install numpy pandas matplotlib scikitlearn ```
+
+## Estructura del código 
+
+```plaintext 
+
+```plaintext
+project/
+├── src/
+│   ├── main.py
+│   ├── utils.py
+│   └── config/
+│       └── settings.json
+├── tests/
+│   └── test_main.py
+├── README.md
+└── requirements.txt
+
