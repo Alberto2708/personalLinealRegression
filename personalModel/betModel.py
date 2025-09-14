@@ -27,11 +27,9 @@ def standardize(x):
 def predict(x, w, b):
     return w * x + b
 
-def cost(y, y_pred):
-    cost = 0
-    for i in range(0, len(y)):
-        cost += (y.iloc[i] - y_pred[i]) ** 2
-    return cost / len(y)
+
+def mse(y, y_pred):
+    return ((y - y_pred) ** 2).mean()
 
 
 # Función descenso de gradiente w y b 
@@ -79,7 +77,7 @@ def trainModel(x, y, lr, max_iter):
             predictions.append(predict(x.iloc[j], w, b))
 
         print(f"current cost: {iter_cost}")
-        iter_cost = cost(y, predictions)
+        iter_cost = mse(y, predictions)
         if abs(model_cost - iter_cost) < tol: 
             break
         model_cost = iter_cost
@@ -93,7 +91,7 @@ def testModel(w, b, x, y):
     for i in range(0, len(x)):
         predictions.append(predict(x.iloc[i], w, b))
     
-    results = cost(y, predictions)
+    results = mse(y, predictions)
 
     return results
 
@@ -112,4 +110,4 @@ def linearModel(x_train, x_test, y_train, y_test, lr=0.1, max_iter=100):
 
     print("Final results:")
     print(f"y = {np.mean(w)}x + {np.mean(b)}")
-    print(f"Final cost: {np.mean(results)}")
+    print(f"Final MSE: {np.mean(results)}")

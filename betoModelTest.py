@@ -1,7 +1,9 @@
-from betModel import covariance, correlation, standardize, predict 
-from betModel import cost, b_gradient_descent, w_gradient_descent, trainModel, testModel, linearModel
+import personalModel.betoModelOOP as model
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from personalModel.learningCurvePersonal import learning_curve_linear_model
+import libraryModel.linearModel as libraryModel
+
 
 #En este archivo se implementa la prueba del modelo, se pueden elegir diferentes 
 
@@ -11,16 +13,17 @@ url = "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/c19a9044624
 penguins = pd.read_csv(url).dropna()
 penguins_target = penguins["Body Mass (g)"]
 penguins_feature = penguins["Culmen Length (mm)"]
-#penguins_feature = standardize(penguins_feature)
 
 X_train, X_test, y_train, y_test = train_test_split(
     penguins_feature, penguins_target, test_size=0.33, random_state=42
 )
 
-linearModel(
-    X_train,
-    X_test,
-    y_train,
-    y_test,
-)
 
+def compare_models():
+    learning_curve_linear_model(penguins_feature, penguins_target)
+
+    libraryModel.plotLinearModel(penguins_feature, penguins_target)
+    pass
+
+
+compare_models()
